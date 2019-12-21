@@ -35,6 +35,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    private fun reset() {
+        firstPlayer.clear()
+        secondPlayer.clear()
+        button1?.setBackgroundResource(android.R.drawable.btn_default)
+        button1?.text = ""
+        button1?.isEnabled = true
+        button2?.setBackgroundResource(android.R.drawable.btn_default)
+        button2?.text = ""
+        button2?.isEnabled = true
+        button3?.setBackgroundResource(android.R.drawable.btn_default)
+        button3?.text = ""
+        button3?.isEnabled = true
+        button4?.setBackgroundResource(android.R.drawable.btn_default)
+        button4?.text = ""
+        button4?.isEnabled = true
+        button5?.setBackgroundResource(android.R.drawable.btn_default)
+        button5?.text = ""
+        button5?.isEnabled = true
+        button6?.setBackgroundResource(android.R.drawable.btn_default)
+        button6?.text = ""
+        button6?.isEnabled = true
+        button7?.setBackgroundResource(android.R.drawable.btn_default)
+        button7?.text = ""
+        button7?.isEnabled = true
+        button8?.setBackgroundResource(android.R.drawable.btn_default)
+        button8?.text = ""
+        button8?.isEnabled = true
+        button9?.setBackgroundResource(android.R.drawable.btn_default)
+        button9?.text = ""
+        button9?.isEnabled = true
+    }
+
     private fun init() {
 
         button1 = findViewById(R.id.button1)
@@ -60,8 +92,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button9?.setOnClickListener(this)
 
         resetButton?.setOnClickListener {
-
-
+            reset()
         }
 
     }
@@ -108,9 +139,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         check()
     }
 
+    var counter = 0
+
     private fun check() {
 
         var winnerPlayer = 0
+        counter ++
 
         if (firstPlayer.contains(1) && firstPlayer.contains(2) && firstPlayer.contains(3)) {
             winnerPlayer = 1
@@ -169,13 +203,48 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         if (winnerPlayer != 0) {
+            counter = 0
+            reset()
             if (winnerPlayer == 1) {
                 Toast.makeText(this, "X Wins!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "O Wins!", Toast.LENGTH_SHORT).show()
             }
         }
+        if (counter == 9) {
+            Toast.makeText(this, "It's Draw", Toast.LENGTH_LONG).show()
+            button1?.setBackgroundResource(android.R.drawable.btn_default)
+            button1?.text = ""
+            button1?.isEnabled = true
+            button2?.setBackgroundResource(android.R.drawable.btn_default)
+            button2?.text = ""
+            button2?.isEnabled = true
+            button3?.setBackgroundResource(android.R.drawable.btn_default)
+            button3?.text = ""
+            button3?.isEnabled = true
+            button4?.setBackgroundResource(android.R.drawable.btn_default)
+            button4?.text = ""
+            button4?.isEnabled = true
+            button5?.setBackgroundResource(android.R.drawable.btn_default)
+            button5?.text = ""
+            button5?.isEnabled = true
+            button6?.setBackgroundResource(android.R.drawable.btn_default)
+            button6?.text = ""
+            button6?.isEnabled = true
+            button7?.setBackgroundResource(android.R.drawable.btn_default)
+            button7?.text = ""
+            button7?.isEnabled = true
+            button8?.setBackgroundResource(android.R.drawable.btn_default)
+            button8?.text = ""
+            button8?.isEnabled = true
+            button9?.setBackgroundResource(android.R.drawable.btn_default)
+            button9?.text = ""
+            button9?.isEnabled = true
+
+        }
 
     }
+
+
 
 }
